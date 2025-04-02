@@ -136,6 +136,37 @@ button:hover {
   transform-origin: left;
 }
 
+.place-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.place-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.mapBtn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #1565c0;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.mapBtn:hover {
+  background-color: #0d47a1;
+}
+
 footer {
   margin-top: 30px;
   padding: 25px;

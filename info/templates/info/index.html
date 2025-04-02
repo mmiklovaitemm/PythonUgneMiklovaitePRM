@@ -10,6 +10,7 @@
   </head>
   <body>
     <header>Pagėgiai - Mažas, bet jaukus miestelis</header>
+
     <div class="container">
       <h2 class="pggName">Apie Pagėgius</h2>
       <p class="pggAbout">
@@ -24,129 +25,28 @@
 
       <h3 class="toVisitPgg">Įdomios vietos</h3>
       <ul>
+        {% for place in places %}
         <li>
-          <h3 class="toVisitSpots">Bitėnų Rambyno regioninis parkas</h3>
-          <p>
-            Rambyno kalnas – legendomis apipinta vieta, kurioje lietuvininkai
-            vykdė pagoniškas apeigas. Nuo kalno atsiveria įspūdinga panorama į
-            Nemuną ir Karaliaučių.
-          </p>
-          <img
-            src="{% static 'info/images/rambyno-kalnas.jpg' %}"
-            alt="Pagėgiai"
-          />
-          <img
-            src="{% static 'info/images/rambyno-kalnas2.jpg' %}"
-            alt="Pagėgiai"
-          />
+          <h3 class="toVisitSpots">{{ place.title }}</h3>
+          <p>{{ place.description }}</p>
+          <div class="place-images">
+            {% for img in place.images.all %}
+            <img src="{{ img.image.url }}" alt="{{ place.title }}" />
+            {% endfor %} {% if place.map_url %}
+            <a
+              class="mapBtn"
+              href="{{ place.map_url }}"
+              target="_blank"
+              rel="noopener"
+            >
+              Rodyti žemėlapyje
+            </a>
+            {% endif %}
+          </div>
         </li>
-
-        <li>
-          <h3 class="toVisitSpots">Raganų eglė</h3>
-          <p>
-            Unikalus gamtos paminklas – eglė, turinti net 18 kamienų! Pasak
-            legendų, ši vieta turi mistinę galią.
-          </p>
-          <img
-            src="{% static 'info/images/raganu-egle.jpg' %}"
-            alt="Pagėgiai"
-          />
-        </li>
-
-        <li>
-          <h3 class="toVisitSpots">Martyno Jankaus muziejus</h3>
-          <p>
-            Spaudos draudimo laikotarpiu Martynas Jankus vadintas lietuviškos
-            spaudos tėvu. Muziejuje išvysite Mažosios Lietuvos istorijos
-            palikimą.
-          </p>
-          <img
-            src="{% static 'info/images/martyno-jankaus-muziejus.jpg' %}"
-            alt="Pagėgiai"
-          />
-          <img src="{% static 'info/images/M-Jankus.jpg' %}" alt="Pagėgiai" />
-        </li>
-
-        <li>
-          <h3 class="toVisitSpots">Algimanto Mackaus gimnazija</h3>
-          <p>
-            Mokykla pavadinta talentingo išeivijos poeto vardu, kuris paliko
-            gilų pėdsaką lietuvių literatūroje.
-          </p>
-          <img src="{% static 'info/images/PAMG.jpg' %}" alt="Pagėgiai" />
-          <img
-            src="{% static 'info/images/Algimantas_Mackus.jpg' %}"
-            alt="Pagėgiai"
-          />
-        </li>
-
-        <li>
-          <h3 class="toVisitSpots">Senovinė geležinkelio stotis</h3>
-          <p>
-            Istorinė XIX a. geležinkelio stotis, menanti Mažosios Lietuvos
-            susisiekimo istoriją.
-          </p>
-          <img
-            src="{% static 'info/images/Pagėgiai_train_station_nauja.jpg' %}"
-            alt="Pagėgiai"
-          />
-          <img
-            src="{% static 'info/images/pagegiai_stotis_gelezinkelio_sena.jpg' %}"
-            alt="Pagėgiai"
-          />
-          <img
-            src="{% static 'info/images/pagegiai_stotis_gelezinkelio_sena2.jpg' %}"
-            alt="Pagėgiai"
-          />
-        </li>
-
-        <li>
-          <h3 class="toVisitSpots">Pagėgių kultūros centras</h3>
-          <p>
-            Kultūrinis Pagėgių miesto traukos centras, organizuojantis įvairius
-            renginius, parodas ir koncertus.
-          </p>
-          <img
-            src="{% static 'info/images/pgg_kulturos_centras.JPG' %}"
-            alt="Pagėgiai"
-          />
-          <img
-            src="{% static 'info/images/pagegiu-kulturos-centras-ir-biblioteka-jame-619180967adbd.jpg' %}"
-            alt="Pagėgiai"
-          />
-          <img
-            src="{% static 'info/images/pagegiu-kulturos-centras-ir-biblioteka-jame-6191809a7e08e.jpg' %}"
-            alt="Pagėgiai"
-          />
-        </li>
-
-        <li>
-          <h3 class="toVisitSpots">Pagėgių baseinas</h3>
-          <p>
-            Modernus baseinas su puikia infrastruktūra sveikatingumui ir
-            sportui.
-          </p>
-          <img
-            src="{% static 'info/images/329787172_886769639290002_4352045290524836195_n.png' %}"
-            alt="Pagėgiai"
-          />
-        </li>
-
-        <li>
-          <h3 class="toVisitSpots">Pagėgių autobusų stotis</h3>
-          <p>
-            Svarbi susisiekimo vieta, iš kurios galima keliauti į įvairius
-            Lietuvos miestus.
-          </p>
-          <img
-            src="{% static 'info/images/autobusu-stotis.jpg' %}"
-            alt="Pagėgiai"
-          />
-          <img
-            src="{% static 'info/images/stotis-autobusu-projektas.jpg' %}"
-            alt="Pagėgiai"
-          />
-        </li>
+        {% empty %}
+        <li><p>Šiuo metu nėra vietų.</p></li>
+        {% endfor %}
       </ul>
 
       <div class="info-box" id="random-fact">
@@ -163,6 +63,7 @@
         Daugiau apie Pagėgius
       </a>
     </div>
+
     <footer>&copy; 2025 Pagėgiai</footer>
   </body>
 </html>
