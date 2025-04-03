@@ -137,10 +137,9 @@ button:hover {
 }
 
 .place-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
 }
 
 .place-images img {
@@ -153,18 +152,18 @@ button:hover {
 
 .mapBtn {
   display: inline-block;
-  margin-top: 10px;
-  background-color: #1565c0;
+  background-color: #1b5e20;
   color: white;
   padding: 10px 30px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  margin-top: 5px;
+  transition: background 0.3s ease;
 }
 
 .mapBtn:hover {
-  background-color: #0d47a1;
+  background-color: #2e7d32;
 }
 
 footer {

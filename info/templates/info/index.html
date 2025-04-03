@@ -32,22 +32,24 @@
           <div class="place-images">
             {% for img in place.images.all %}
             <img src="{{ img.image.url }}" alt="{{ place.title }}" />
-            {% endfor %} {% if place.map_url %}
-            <a
+
+            {% endfor %} 
+            {% if place.map_url %}
+              <a
               class="mapBtn"
               href="{{ place.map_url }}"
               target="_blank"
               rel="noopener"
             >
               Rodyti žemėlapyje
-            </a>
+            </a>          
             {% endif %}
-          </div>
         </li>
         {% empty %}
         <li><p>Šiuo metu nėra vietų.</p></li>
         {% endfor %}
       </ul>
+    </div>
 
       <div class="info-box" id="random-fact">
         Spausk mygtuką ir sužinok įdomų faktą apie Pagėgius!
