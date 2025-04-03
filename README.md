@@ -21,3 +21,34 @@ A simple Django web project that presents interesting places in Pagėgiai, Lithu
 - HTML5, CSS3
 - JavaScript (for the random fact button)
 - SQLite3 (default Django database)
+
+## Setup Instructions
+
+1. Clone the repository:
+
+```bash
+git clone <your-repo-url>
+cd project-folder
+```
+
+2. Create and activate a virtual environment:
+   python -m venv env
+   env\Scripts\activate # On Windows
+
+3. Install Django:
+   pip install django
+
+4. Run migrations:
+   python manage.py makemigrations
+   python manage.py migrate
+
+5. Create a superuser:
+   python manage.py createsuperuser
+
+6. Start the development server:
+   python manage.py runserver
+
+7. Visit the site:
+
+- Admin panel: http://127.0.0.1:8000/admin
+- Homepage: http://127.0.0.1:8000/
